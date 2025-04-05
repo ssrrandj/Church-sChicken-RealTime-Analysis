@@ -1,0 +1,13 @@
+{
+	"name": "filenametable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "testsql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

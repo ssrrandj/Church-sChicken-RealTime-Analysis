@@ -1,0 +1,144 @@
+{
+	"name": "adv",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.file_name",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "HttpReadSettings",
+										"requestMethod": "GET"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "git",
+									"type": "DatasetReference",
+									"parameters": {
+										"file_name": {
+											"value": "@item().file_name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "togen2",
+									"type": "DatasetReference",
+									"parameters": {
+										"file_name": {
+											"value": "@item().file_name",
+											"type": "Expression"
+										},
+										"folder_name": {
+											"value": "@item().folder_name",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"file_name": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"folder_name": "AdventureWorks_Product_Categories",
+						"file_name": "AdventureWorks_Product_Categories.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Calendar",
+						"file_name": "AdventureWorks_Calendar.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Customers",
+						"file_name": "AdventureWorks_Customers.csv"
+					},
+					{
+						"folder_name": "Product_Subcategories",
+						"file_name": "AdventureWorks_Product_Subcategories.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Products",
+						"file_name": "AdventureWorks_Products.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Returns",
+						"file_name": "AdventureWorks_Returns.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Sales_2015",
+						"file_name": "AdventureWorks_Sales_2015.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Sales_2016",
+						"file_name": "AdventureWorks_Sales_2016.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Sales_2017",
+						"file_name": "AdventureWorks_Sales_2017.csv"
+					},
+					{
+						"folder_name": "AdventureWorks_Territories",
+						"file_name": "AdventureWorks_Territories.csv"
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-03-20T05:46:37Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

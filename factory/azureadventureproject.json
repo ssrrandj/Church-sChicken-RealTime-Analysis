@@ -1,0 +1,9 @@
+{
+	"name": "azureadventureproject",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2f8311e5-1485-412a-8112-586d8ec9e00a",
+		"tenantId": "82be9118-7f3f-4490-bd95-10ef5ba7c0cf"
+	}
+}
