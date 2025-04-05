@@ -5,11 +5,6 @@
 			"referenceName": "churchschickensourcedata",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"filename1": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

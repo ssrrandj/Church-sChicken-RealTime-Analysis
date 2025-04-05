@@ -96,14 +96,6 @@
 											"value": "'@{item().name}'",
 											"type": "Expression"
 										}
-									},
-									"datasetParameters": {
-										"source1": {
-											"filename1": {
-												"value": "@item().name",
-												"type": "Expression"
-											}
-										}
 									}
 								},
 								"compute": {
