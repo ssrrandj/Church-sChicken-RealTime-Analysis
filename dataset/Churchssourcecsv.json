@@ -1,0 +1,28 @@
+{
+	"name": "Churchssourcecsv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "churchschickensourcedata",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename1": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sales_data.csv",
+				"fileSystem": "craw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

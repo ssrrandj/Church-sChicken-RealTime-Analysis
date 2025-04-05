@@ -1,0 +1,39 @@
+{
+	"name": "churchgetdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "churchschickensourcedata",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "craw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "RestaurantID",
+				"type": "String"
+			},
+			{
+				"name": "TotalSales",
+				"type": "String"
+			},
+			{
+				"name": "NumberOfOrders",
+				"type": "String"
+			}
+		]
+	}
+}
